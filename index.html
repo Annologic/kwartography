@@ -1362,6 +1362,11 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
+  /* ── HERO INITIAL STATE (set before loader fades) ───── */
+  gsap.set('#h-ey',     { opacity: 0, y: 12 });
+  gsap.set('#hero .wi', { y: '110%' });
+  gsap.set('#h-act',    { opacity: 0, y: 16 });
+
   /* ── LENIS SMOOTH SCROLL ─────────────────────────────── */
   const lenis = new Lenis({
     duration: 1.4,
@@ -1432,9 +1437,6 @@
       scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=500', scrub: 0.5 }
     });
     /* Text entrance */
-    gsap.set('#h-ey',  { opacity: 0, y: 12 });
-    gsap.set('#hero .wi', { y: '110%' });
-    gsap.set('#h-act', { opacity: 0, y: 16 });
     const htl = gsap.timeline({ delay: .2 });
     htl
       .to('#h-ey',      { opacity: 1, y: 0, duration: .7, ease: 'power3.out' })
