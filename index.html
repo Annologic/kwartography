@@ -1427,15 +1427,15 @@
         clipPath: 'inset(20px 20px 20px 20px round 18px)',
         ease: 'none',
         scrollTrigger: {
-          trigger: '#hero', start: 'top top', end: '+=500',
-          scrub: 0.5, pin: true, pinSpacing: true,
+          trigger: '#hero', start: 'top top', end: '+=160',
+          scrub: 0.1, pin: true, pinSpacing: true,
         }
       }
     );
     /* Photo parallax */
     gsap.to('.hero-photo', {
-      yPercent: 15, ease: 'none',
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=500', scrub: 0.5 }
+      yPercent: 10, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=160', scrub: 0.1 }
     });
     /* Text entrance */
     const htl = gsap.timeline({ delay: .2 });
@@ -1506,9 +1506,11 @@
   /* ── SERVICES ────────────────────────────────────────── */
   gsap.from('.svc', { opacity: 0, y: 32, duration: .5, stagger: .05, ease: 'power3.out', scrollTrigger: { trigger: '.svgrid', start: 'top 84%' } });
   document.querySelectorAll('.svc[data-service]').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
       const sel = document.getElementById('f-service');
       if (sel) sel.value = card.dataset.service;
+      lenis.scrollTo('#contact', { offset: -80, duration: 1.2 });
     });
   });
 
