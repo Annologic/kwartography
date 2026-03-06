@@ -99,6 +99,10 @@
       font-family: var(--ff-b); font-weight: 300;
       overflow-x: hidden; cursor: none;
     }
+    @media (max-width: 640px) {
+      body { padding-bottom: 76px; cursor: auto; }
+      * { cursor: auto !important; }
+    }
     img { display: block; max-width: 100%; }
 
     /* ═══ CURSOR ═══════════════════════════════════════════ */
@@ -525,7 +529,33 @@
     .pcat { font-size: 8px; letter-spacing: .4em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
     .pname { font-family: var(--ff-d); font-size: 18px; font-weight: 600; color: var(--white); }
     .pi .rmask { position: absolute; inset: 0; background: var(--black); transform-origin: bottom; z-index: 2; }
-    .port-more { text-align: center; padding: 80px 56px; background: var(--black); }
+    .port-more { text-align: center; padding: 80px 56px; background: var(--black); display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ═══ MOBILE BOOK BAR ════════════════════════════════════ */
+    #mob-book-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
+      background: rgba(7,7,7,0.97);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px 16px;
+      align-items: center; gap: 12px;
+    }
+    #mob-book-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 14px 20px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-decoration: none; text-align: center;
+    }
+    .mob-book-primary {
+      background: var(--accent); color: var(--black);
+      transition: background .3s;
+    }
+    .mob-book-primary:hover { background: var(--accent2); }
+    .mob-book-ghost {
+      color: var(--muted); border: 1px solid var(--border);
+      transition: color .3s, border-color .3s;
+    }
+    .mob-book-ghost:hover { color: var(--white); border-color: var(--white); }
 
 
     /* ═══ SERVICES ══════════════════════════════════════════ */
@@ -681,11 +711,11 @@
       .hero-content { left: 32px; bottom: 56px; }
       .hero-scroll-cue { right: 32px; }
       .about-g { grid-template-columns: 1fr; gap: 60px; }
-
       .astat { left: 0; }
       .pgrid { columns: 2; }
       .svgrid { grid-template-columns: 1fr; }
       .prgrid { grid-template-columns: 1fr 1fr; }
+      .prstep:nth-child(even) { border-right: none; }
       .tgrid { grid-template-columns: 1fr; }
       .ctg { grid-template-columns: 1fr; gap: 60px; }
       .fti { flex-direction: column; gap: 24px; text-align: center; }
@@ -694,14 +724,59 @@
       .mm-close-hint { right: 24px; bottom: 36px; }
     }
     @media (max-width: 640px) {
-      .hero-content { left: 24px; right: 24px; bottom: 44px; max-width: none; }
-      .hero-h1 { font-size: clamp(40px, 11vw, 72px); margin-bottom: 28px; }
-      .hero-eyebrow { margin-bottom: 16px; }
+      /* ── Nav ── */
+      .nav-logo { font-size: 13px; letter-spacing: 0.22em; }
+
+      /* ── Sections ── */
+      .sec { padding: 72px 20px; }
+      .sec-inner { padding: 0; }
+
+      /* ── Hero ── */
+      .hero-content { left: 20px; right: 20px; bottom: 36px; max-width: none; }
+      .hero-h1 { font-size: clamp(36px, 10vw, 64px); margin-bottom: 24px; }
+      .hero-eyebrow { margin-bottom: 14px; }
       .hero-scroll-cue { display: none; }
-      .pgrid { columns: 1; }
-      .prgrid { grid-template-columns: 1fr; }
+      .hero-cta-btn, .hero-cta-ghost { padding: 16px 28px; font-size: 9px; }
+
+      /* ── About ── */
+      .aph-main { aspect-ratio: 4/3; }
+
+      /* ── Portfolio ── */
+      .pgrid { columns: 2; column-gap: 2px; }
+      .pi { margin-bottom: 2px; }
+      /* Show only first 8 images on mobile by default */
+      .pgrid .pi:nth-child(n+9) { display: none; }
+      .pgrid.expanded .pi { display: block; }
+      .port-more { padding: 40px 20px; }
+
+      /* ── Process ── */
+      .prgrid { grid-template-columns: 1fr; margin-top: 40px; }
+      .prstep { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 0; }
+      .prstep:last-child { border-bottom: none; }
+
+      /* ── Testimonials ── */
+      .tc { padding: 28px 20px; }
+      .ttxt { font-size: 15px; }
+
+      /* ── Contact ── */
+      .ctg { gap: 40px; }
+      /* Put form first on mobile so it's immediately reachable */
+      .ctf { order: -1; }
       .fr { grid-template-columns: 1fr; }
-      footer { padding: 40px 24px; }
+      .fg input, .fg select, .fg textarea { padding: 14px 14px; font-size: 15px; }
+
+      /* ── Footer ── */
+      footer { padding: 40px 20px; }
+      .ftsc { width: 44px; height: 44px; }
+
+      /* ── Floating book CTA (mobile only) ── */
+      #mob-book-bar { display: flex; }
+    }
+    @media (min-width: 641px) {
+      #mob-book-bar { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -1117,6 +1192,9 @@
       </div>
     </div>
     <div class="port-more">
+      <button id="pgShowMore" class="btn btn-wht" onclick="expandGrid()" style="display:none">
+        Show All 24 Photos <span class="arr"></span>
+      </button>
       <a href="https://kwartography.mypixieset.com/" target="_blank" rel="noopener" class="btn btn-wht">
         View Full Gallery <span class="arr"></span>
       </a>
@@ -1271,6 +1349,12 @@
   </footer>
 
   <!-- ════════════════════ JAVASCRIPT ════════════════════ -->
+  <!-- MOBILE BOOK BAR -->
+  <div id="mob-book-bar">
+    <a href="#contact" class="mob-book-primary" onclick="document.getElementById('mob-book-bar').style.display='none'">Book a Session</a>
+    <a href="portal.html" class="mob-book-ghost">My Gallery</a>
+  </div>
+
   <script>
   /* ── SCROLL RESTORE: always start at top on refresh ─── */
   if (history.scrollRestoration) history.scrollRestoration = 'manual';
@@ -1450,6 +1534,33 @@
       gsap.to(magEl, { x: (e.clientX - r.left - r.width / 2) * .4, y: (e.clientY - r.top - r.height / 2) * .4, duration: .4, ease: 'power2.out' });
     });
     magEl.addEventListener('mouseleave', () => gsap.to(magEl, { x: 0, y: 0, duration: .7, ease: 'elastic.out(1,.5)' }));
+  }
+
+  /* ── MOBILE: show/hide show-more button & book bar ──── */
+  (function() {
+    const isMob = () => window.innerWidth <= 640;
+    const showMoreBtn = document.getElementById('pgShowMore');
+    if (isMob()) showMoreBtn.style.display = 'inline-flex';
+    window.addEventListener('resize', () => {
+      showMoreBtn.style.display = isMob() ? 'inline-flex' : 'none';
+      // If expanded on mobile but resized to desktop, keep expanded
+    });
+    // Hide floating bar when user reaches contact section
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      const obs = new IntersectionObserver(entries => {
+        const bar = document.getElementById('mob-book-bar');
+        if (bar) bar.style.display = entries[0].isIntersecting ? 'none' : '';
+      }, { threshold: 0.1 });
+      obs.observe(contactEl);
+    }
+  })();
+
+  function expandGrid() {
+    document.querySelector('.pgrid').classList.add('expanded');
+    document.getElementById('pgShowMore').style.display = 'none';
+    // Re-init any rmask animations for newly visible items
+    ScrollTrigger.refresh();
   }
 
   /* ── PORTFOLIO FILTER ────────────────────────────────── */
