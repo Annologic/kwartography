@@ -1801,6 +1801,197 @@
         color: #888;
         margin-top: 3px;
       }
+
+      /* ═══ ALTERNATING CARD ART ═════════════════════════════ */
+
+      /* --- SERVICE CARDS: Odd = warm film treatment ---------- */
+      .svc {
+        transition:
+          background 0.4s,
+          box-shadow 0.5s var(--ease-out),
+          transform 0.4s var(--ease-out);
+      }
+      .svc:nth-child(odd) {
+        background: linear-gradient(135deg, #fdfcf8 0%, #f9f6ef 100%);
+        box-shadow:
+          0 8px 32px rgba(198, 148, 27, 0.08),
+          0 2px 8px rgba(0, 0, 0, 0.04);
+        border-left: 3px solid rgba(198, 148, 27, 0.25);
+      }
+      .svc:nth-child(odd)::before {
+        content: "";
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border-top: 2px solid rgba(198, 148, 27, 0.15);
+        border-right: 2px solid rgba(198, 148, 27, 0.15);
+        pointer-events: none;
+        transition: opacity 0.4s;
+      }
+      .svc:nth-child(odd) .snum {
+        color: rgba(198, 148, 27, 0.12);
+      }
+      .svc:nth-child(odd):hover {
+        background: linear-gradient(135deg, #faf7f0 0%, #f5f0e4 100%);
+        box-shadow:
+          0 14px 48px rgba(198, 148, 27, 0.14),
+          0 4px 14px rgba(0, 0, 0, 0.06);
+        transform: translateY(-3px);
+      }
+      .svc:nth-child(odd):hover::before {
+        border-color: rgba(198, 148, 27, 0.3);
+      }
+      /* --- SERVICE CARDS: Even = minimal darkroom ----------- */
+      .svc:nth-child(even) {
+        background: transparent;
+      }
+      .svc:nth-child(even) .snum {
+        color: rgba(0, 0, 0, 0.04);
+      }
+      .svc:nth-child(even):hover {
+        background: rgba(246, 245, 240, 0.4);
+      }
+
+      /* --- PROCESS STEPS: Odd = warm accent badge ----------- */
+      .prstep {
+        transition:
+          background 0.4s,
+          transform 0.4s var(--ease-out),
+          box-shadow 0.5s var(--ease-out);
+      }
+      .prstep:nth-child(odd) {
+        background: linear-gradient(
+          180deg,
+          rgba(198, 148, 27, 0.035) 0%,
+          transparent 65%
+        );
+        padding-left: 36px;
+      }
+      .prstep:nth-child(odd) .prn {
+        background: rgba(198, 148, 27, 0.08);
+        display: inline-block;
+        padding: 3px 14px;
+        border-radius: 2px;
+      }
+      .prstep:nth-child(odd)::after {
+        content: "";
+        position: absolute;
+        bottom: 16px;
+        left: 36px;
+        width: 28px;
+        height: 1px;
+        background: rgba(198, 148, 27, 0.2);
+        transition: width 0.6s var(--ease-out);
+      }
+      .prstep:nth-child(odd):hover::after {
+        width: 60px;
+      }
+      .prstep:nth-child(odd):hover {
+        background: linear-gradient(
+          180deg,
+          rgba(198, 148, 27, 0.06) 0%,
+          transparent 65%
+        );
+      }
+      /* --- PROCESS STEPS: Even = clean with subtle lift ----- */
+      .prstep:nth-child(even) {
+        background: transparent;
+      }
+      .prstep:nth-child(even):hover {
+        background: rgba(0, 0, 0, 0.012);
+      }
+
+      /* --- TESTIMONIAL CARDS: Odd = polaroid feel ----------- */
+      .tc {
+        transition:
+          background 0.4s,
+          box-shadow 0.5s var(--ease-out),
+          transform 0.4s var(--ease-out);
+      }
+      .tc:nth-child(odd) {
+        background: linear-gradient(145deg, #ffffff 0%, #fdfcf8 100%);
+        box-shadow:
+          0 6px 28px rgba(0, 0, 0, 0.06),
+          0 1px 5px rgba(0, 0, 0, 0.03);
+        border-bottom: 3px solid rgba(198, 148, 27, 0.2);
+      }
+      .tc:nth-child(odd)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 44px 44px 0;
+        border-color: transparent rgba(198, 148, 27, 0.05) transparent
+          transparent;
+        pointer-events: none;
+      }
+      .tc:nth-child(odd) .ttxt {
+        color: rgba(13, 13, 13, 0.7);
+      }
+      .tc:nth-child(odd):hover {
+        background: linear-gradient(145deg, #ffffff 0%, #faf8f2 100%);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.09),
+          0 3px 10px rgba(0, 0, 0, 0.04);
+        transform: translateY(-4px);
+      }
+      /* --- TESTIMONIAL CARDS: Even = flat, understated ------- */
+      .tc:nth-child(even) {
+        background: #ffffff;
+        position: relative;
+      }
+      .tc:nth-child(even)::after {
+        content: "";
+        position: absolute;
+        bottom: 28px;
+        left: 40px;
+        width: 32px;
+        height: 2px;
+        background: rgba(198, 148, 27, 0.15);
+        pointer-events: none;
+      }
+
+      /* --- PORTFOLIO: Alternating overlay & frame ----------- */
+      .pi:nth-child(odd) .pov {
+        background: linear-gradient(
+          to top,
+          rgba(12, 8, 2, 0.88) 0%,
+          rgba(198, 148, 27, 0.04) 42%,
+          transparent 62%
+        );
+      }
+      .pi:nth-child(odd)::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: 2;
+      }
+      .pi:nth-child(odd):hover::after {
+        opacity: 1;
+      }
+      .pi:nth-child(even) img {
+        filter: saturate(0.7) brightness(0.9) contrast(1.05);
+      }
+      .pi:nth-child(even):hover img {
+        filter: saturate(1.05) brightness(1) contrast(1);
+      }
+      .pi:nth-child(even) .pov {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.78) 0%,
+          transparent 50%
+        );
+      }
+
       /* ═══ CONTACT ═══════════════════════════════════════════ */
       #contact {
         background: #f6f5f0;
