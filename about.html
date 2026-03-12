@@ -50,7 +50,6 @@
       }
       html {
         background: var(--black);
-        scroll-behavior: smooth;
       }
       body {
         background: var(--black);
@@ -1005,19 +1004,19 @@
     <!-- MOBILE MENU -->
     <div id="mmenu">
       <ul class="mm-links">
-        <li><a href="index-new.html" onclick="closeMenu()">Home</a></li>
+        <li><a href="index.html" onclick="closeMenu()">Home</a></li>
         <li>
-          <a href="index-new.html#portfolio" onclick="closeMenu()">Portfolio</a>
+          <a href="index.html#portfolio" onclick="closeMenu()">Portfolio</a>
         </li>
         <li>
-          <a href="index-new.html#services" onclick="closeMenu()">Services</a>
+          <a href="index.html#services" onclick="closeMenu()">Services</a>
         </li>
-        <li><a href="pricing-new.html" onclick="closeMenu()">Investment</a></li>
+        <li><a href="clients.html" onclick="closeMenu()">Clients</a></li>
         <li>
-          <a href="index-new.html#contact" onclick="closeMenu()">Contact</a>
+          <a href="index.html#contact" onclick="closeMenu()">Contact</a>
         </li>
         <li>
-          <a href="portal-new.html" onclick="closeMenu()">Client Gallery</a>
+          <a href="portal.html" onclick="closeMenu()">Client Gallery</a>
         </li>
       </ul>
       <div class="mm-social">
@@ -1029,14 +1028,14 @@
     </div>
     <!-- NAV -->
     <nav id="nav">
-      <a href="index-new.html" class="nav-logo">KWAR<b>T</b>OGRAPHY</a>
+      <a href="index.html" class="nav-logo">KWAR<b>T</b>OGRAPHY</a>
       <ul class="nav-links">
-        <li><a href="index-new.html#portfolio">Portfolio</a></li>
-        <li><a href="about-new.html" class="active">Story</a></li>
-        <li><a href="index-new.html#services">Services</a></li>
-        <li><a href="pricing-new.html">Investment</a></li>
-        <li><a href="index-new.html#contact">Contact</a></li>
-        <li><a href="portal-new.html" class="nav-portal">Client Gallery</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="about.html" class="active">Story</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="portal.html" class="nav-portal">Client Gallery</a></li>
       </ul>
       <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1236,10 +1235,10 @@
         moments you want to preserve — and let's make art together.
       </p>
       <div>
-        <a href="index-new.html#contact" class="btn btn-gold"
+        <a href="index.html#contact" class="btn btn-gold"
           >Get in Touch <span class="arr"></span
         ></a>
-        <a href="index-new.html#portfolio" class="btn btn-outline"
+        <a href="index.html#portfolio" class="btn btn-outline"
           >View Portfolio <span class="arr"></span
         ></a>
       </div>
@@ -1249,24 +1248,24 @@
       <div class="ft-inner">
         <div class="ft-top">
           <div class="ft-brand">
-            <a href="index-new.html" class="ft-logo">KWAR<b>T</b>OGRAPHY</a>
+            <a href="index.html" class="ft-logo">KWAR<b>T</b>OGRAPHY</a>
             <div class="ft-tag">Capturing moments, crafting memories</div>
           </div>
           <div class="ft-nav">
             <div class="ft-col">
               <div class="ft-col-title">Navigate</div>
               <ul>
-                <li><a href="index-new.html">Home</a></li>
-                <li><a href="index-new.html#portfolio">Portfolio</a></li>
-                <li><a href="about-new.html">Story</a></li>
-                <li><a href="pricing-new.html">Investment</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="about.html">Story</a></li>
+                <li><a href="clients.html">Clients</a></li>
               </ul>
             </div>
             <div class="ft-col">
               <div class="ft-col-title">Connect</div>
               <ul>
-                <li><a href="index-new.html#contact">Contact</a></li>
-                <li><a href="portal-new.html">Client Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portal.html">Client Gallery</a></li>
                 <li><a href="#">Instagram</a></li>
               </ul>
             </div>
@@ -1287,20 +1286,25 @@
     <script>
       /* ═══ LENIS SMOOTH SCROLL ═══ */
       const lenis = new Lenis({
-        duration: 1.2,
+        duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        touchMultiplier: 1.5,
       });
       lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
       /* ═══ SCROLL PROGRESS BAR ═══ */
       const sbar = document.getElementById("sbar");
-      window.addEventListener("scroll", () => {
-        const h = document.documentElement;
-        sbar.style.width =
-          (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
-      });
+      window.addEventListener(
+        "scroll",
+        () => {
+          const scrolled =
+            (window.scrollY /
+              (document.documentElement.scrollHeight - window.innerHeight)) *
+            100;
+          sbar.style.width = scrolled + "%";
+        },
+        { passive: true },
+      );
       /* ═══ NAV ═══ */
       gsap.to("#nav", {
         y: 0,

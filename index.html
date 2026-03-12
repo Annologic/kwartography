@@ -2560,20 +2560,6 @@
           >
         </div>
       </div>
-      <!-- Phase 2: A second thought -->
-      <div class="story-phase" id="story-p2">
-        <div class="story-line">
-          <span class="line"
-            ><span class="line-inner">From Accra's golden light</span></span
-          >
-          <span class="line"
-            ><span class="line-inner">to Atlanta's vibrant spirit —</span></span
-          >
-          <span class="line"
-            ><span class="line-inner">this is where art meets life.</span></span
-          >
-        </div>
-      </div>
       <!-- Phase 3: Name reveal -->
       <div class="story-phase" id="story-p3">
         <div class="story-name">
@@ -2596,13 +2582,13 @@
     <!-- MOBILE MENU -->
     <div id="mmenu">
       <ul class="mm-links">
-        <li><a href="about-new.html" onclick="closeMenu()">Story</a></li>
+        <li><a href="about.html" onclick="closeMenu()">Story</a></li>
         <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
         <li><a href="#services" onclick="closeMenu()">Services</a></li>
-        <li><a href="pricing-new.html" onclick="closeMenu()">Clients</a></li>
+        <li><a href="clients.html" onclick="closeMenu()">Clients</a></li>
         <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
         <li>
-          <a href="portal-new.html" onclick="closeMenu()">Client Gallery</a>
+          <a href="portal.html" onclick="closeMenu()">Client Gallery</a>
         </li>
       </ul>
       <div class="mm-social">
@@ -2617,11 +2603,11 @@
       <a href="#" class="nav-logo">KWAR<b>T</b>OGRAPHY</a>
       <ul class="nav-links">
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="about-new.html">Story</a></li>
+        <li><a href="about.html">Story</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="pricing-new.html">Investment</a></li>
+        <li><a href="clients.html">Clients</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="portal-new.html" class="nav-portal">Client Gallery</a></li>
+        <li><a href="portal.html" class="nav-portal">Client Gallery</a></li>
       </ul>
       <a href="#contact" class="nav-book">Book a Session</a>
       <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Menu">
@@ -3672,7 +3658,7 @@
         onclick="document.getElementById('mob-book-bar').style.display = 'none'"
         >Book a Session</a
       >
-      <a href="portal-new.html" class="mob-book-ghost">My Gallery</a>
+      <a href="portal.html" class="mob-book-ghost">My Gallery</a>
     </div>
     <!-- ════════════════════ JAVASCRIPT ════════════════════ -->
     <script>
@@ -3760,21 +3746,6 @@
               "-=.2",
             )
             .to("#story-p1", { opacity: 0, duration: 0.6, delay: 1.2 });
-          // Phase 2: Second poetic line
-          master
-            .to("#story-p2", { opacity: 1, duration: 0.5 })
-            .to(
-              "#story-p2 .line-inner",
-              {
-                y: "0%",
-                opacity: 1,
-                duration: 0.9,
-                stagger: 0.18,
-                ease: "expo.out",
-              },
-              "-=.2",
-            )
-            .to("#story-p2", { opacity: 0, duration: 0.6, delay: 1 });
           // Phase 3: Name reveal
           master
             .to("#story-p3", { opacity: 1, duration: 0.4 })
@@ -3966,7 +3937,7 @@
           contact: "sec-contact",
         };
         const labelMap = {
-          about: "STORY",
+          about: "DISCOVER",
           portfolio: "VIEW",
           services: "EXPLORE",
           contact: "WRITE",
