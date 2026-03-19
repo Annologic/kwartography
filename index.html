@@ -2698,13 +2698,13 @@
     <!-- STATS BAND -->
     <section id="stats">
       <div class="stats-inner">
-        <div class="stat-cell">
+        <!-- <div class="stat-cell">
           <span class="stat-n" data-target="500">0</span>
           <span class="stat-l">Sessions Completed</span>
           <p class="stat-desc">
             Portraits, weddings &amp; commercial shoots delivered worldwide
           </p>
-        </div>
+        </div> -->
         <div class="stat-cell">
           <span class="stat-n" data-target="8">0</span>
           <span class="stat-l">Years of Experience</span>
@@ -2712,7 +2712,7 @@
             Crafting intentional imagery across Africa and beyond
           </p>
         </div>
-        <div class="stat-cell">
+        <!-- <div class="stat-cell">
           <span class="stat-n" data-target="30">0</span>
           <span class="stat-l">Awards &amp; Features</span>
           <p class="stat-desc">
@@ -2723,7 +2723,7 @@
           <span class="stat-n" data-target="12">0</span>
           <span class="stat-l">Countries Visited</span>
           <p class="stat-desc">Destination shoots from Atlanta to Amsterdam</p>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- ABOUT -->
@@ -2740,7 +2740,7 @@
           </div>
         </div>
         <div class="atxt">
-          <div class="sl"><span>About the Photographer</span></div>
+          <div class="sl"><span>About Us</span></div>
           <h2 class="stitle" id="abt-title">
             <span class="cw"><span class="ci">A Camera Has Always</span></span
             ><br />
@@ -2750,7 +2750,7 @@
           </h2>
           <p class="abody" id="abody">
             I still remember shooting my first wedding with little experience
-            over 15 years ago — and later capturing a stranger who would one day
+            over 15 years ago and later capturing a stranger who would one day
             become my wife. Photography, for me, is more than pictures; it's
             about freezing emotions and connections that time might otherwise
             erase.
@@ -3498,7 +3498,8 @@
               <div>
                 <div class="clbl">Location</div>
                 <div class="cval">
-                  Georgia, USA &middot; Available Worldwide
+                  <!-- Georgia, USA &middot; Available Worldwide -->
+                   Atlanta, GA – Available Worldwide
                 </div>
               </div>
             </div>
@@ -3511,7 +3512,7 @@
               </div>
               <div>
                 <div class="clbl">Response</div>
-                <div class="cval">Within 24 hours</div>
+                <div class="cval">Within 24-48 hrs</div>
               </div>
             </div>
           </div>
@@ -3550,16 +3551,28 @@
             />
           </div>
           <div class="fg">
+            <label for="f-number">Phone Number</label
+            ><input
+              id="f-number"
+              name="phone"
+              type="tel"
+              placeholder="(123) 456-7890"
+              required
+            />
+          </div>
+          <div class="fg">
             <label for="f-service">Service</label>
             <select id="f-service" name="service">
               <option value="">Select a service...</option>
               <option>Portrait Session</option>
               <option>Wedding Photography</option>
-              <option>Editorial / Commercial</option>
+              <!-- <option>Editorial / Commercial</option> -->
               <option>Maternity / Newborn</option>
               <option>Event Coverage</option>
-              <option>Fine Art Print</option>
+              <option>Corporate Sessions</option>
+              <!-- <option>Fine Art Print</option> -->
               <option>Destination Photography</option>
+              <option>Other</option>
             </select>
           </div>
           <div class="fg">
