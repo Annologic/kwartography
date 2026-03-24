@@ -2277,6 +2277,133 @@
         color: var(--muted);
       }
       /* ═══ FOOTER ════════════════════════════════════════════ */
+      /* ── PRICING & PACKAGES ── */
+      #pricing {
+        background: var(--black);
+        border-top: 1px solid var(--border);
+      }
+      .pricing-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 100px 40px;
+      }
+      .pricing-hd {
+        margin-bottom: 64px;
+      }
+      .pkg-row {
+        display: grid;
+        grid-template-columns: 220px 1fr auto;
+        align-items: start;
+        gap: 48px;
+        padding: 60px 0;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+      }
+      .pkg-row:first-of-type {
+        border-top: 1px solid var(--border);
+      }
+      .pkg-alt {
+        background: rgba(255, 255, 255, 0.02);
+        margin: 0 -40px;
+        padding: 60px 40px;
+      }
+      .pkg-img-wrap {
+        flex-shrink: 0;
+      }
+      .pkg-img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.92) contrast(1.04);
+      }
+      .pkg-title {
+        font-family: var(--ff-serif);
+        font-size: clamp(28px, 4vw, 46px);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 20px;
+        letter-spacing: -0.01em;
+      }
+      .pkg-desc {
+        font-size: 14px;
+        color: var(--soft);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        max-width: 520px;
+      }
+      .pkg-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .pkg-list li {
+        font-size: 13px;
+        color: var(--muted);
+        padding-left: 16px;
+        position: relative;
+        line-height: 1.5;
+      }
+      .pkg-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+      .pkg-price {
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 6px;
+      }
+      .pkg-inquire {
+        font-family: var(--ff-serif);
+        font-style: italic;
+        font-size: 18px;
+        color: var(--soft);
+        line-height: 1.4;
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .pkg-inquire:hover {
+        color: var(--accent);
+      }
+      @media (max-width: 860px) {
+        .pkg-row {
+          grid-template-columns: 160px 1fr;
+          grid-template-rows: auto auto;
+          gap: 28px;
+        }
+        .pkg-price {
+          grid-column: 2;
+          grid-row: 1;
+          text-align: left;
+          padding-top: 0;
+        }
+        .pkg-body {
+          grid-column: 1 / -1;
+        }
+      }
+      @media (max-width: 560px) {
+        .pkg-row {
+          grid-template-columns: 1fr;
+        }
+        .pkg-img {
+          aspect-ratio: 16 / 9;
+        }
+        .pkg-price {
+          grid-column: 1;
+          grid-row: unset;
+        }
+        .pkg-alt {
+          margin: 0 -20px;
+          padding: 48px 20px;
+        }
+      }
+      /* ── END PRICING ── */
       footer {
         background: var(--black);
         border-top: 1px solid var(--border);
@@ -2299,6 +2426,10 @@
       }
       .ftl b {
         color: var(--accent);
+      }
+      .ftl img {
+        width: 33%;
+        height: auto;
       }
       .ftc {
         font-family: var(--ff-b);
@@ -2710,15 +2841,15 @@
       </div>
     </div>
     <!-- STATS BAND -->
-    <section id="stats">
+    <!-- <section id="stats">
       <div class="stats-inner">
-        <!-- <div class="stat-cell">
+        <div class="stat-cell">
           <span class="stat-n" data-target="500">0</span>
           <span class="stat-l">Sessions Completed</span>
           <p class="stat-desc">
             Portraits, weddings &amp; commercial shoots delivered worldwide
           </p>
-        </div> -->
+        </div>
         <div class="stat-cell">
           <span class="stat-n" data-target="8">0</span>
           <span class="stat-l">Years of Experience</span>
@@ -2726,7 +2857,7 @@
             Crafting intentional imagery across Africa and beyond
           </p>
         </div>
-        <!-- <div class="stat-cell">
+        <div class="stat-cell">
           <span class="stat-n" data-target="30">0</span>
           <span class="stat-l">Awards &amp; Features</span>
           <p class="stat-desc">
@@ -2737,9 +2868,9 @@
           <span class="stat-n" data-target="12">0</span>
           <span class="stat-l">Countries Visited</span>
           <p class="stat-desc">Destination shoots from Atlanta to Amsterdam</p>
-        </div> -->
+        </div>
       </div>
-    </section>
+    </section> -->
     <!-- ABOUT -->
     <section class="sec" id="about">
       <div class="sec-inner about-g">
@@ -3226,9 +3357,9 @@
             </div>
             <div class="slnk">Inquire <span class="arr"></span></div
           ></a>
-          <a class="svc" href="#contact" data-service="Editorial / Commercial"
+          <a class="svc" href="#contact" data-service="Corporate Shoots"
             ><div class="snum">03</div>
-            <div class="snm">Editorial &amp; Commercial</div>
+            <div class="snm">Corporate Shoots</div>
             <div class="sdc">
               Brand campaigns, magazine spreads, and product photography
               designed to align with your visual identity and captivate your
@@ -3236,7 +3367,7 @@
             </div>
             <div class="slnk">Inquire <span class="arr"></span></div
           ></a>
-          <a class="svc" href="#contact" data-service="Fine Art Print"
+          <!-- <a class="svc" href="#contact" data-service="Fine Art Print"
             ><div class="snum">04</div>
             <div class="snm">Fine Art Prints</div>
             <div class="sdc">
@@ -3244,7 +3375,7 @@
               editions for home and gallery display.
             </div>
             <div class="slnk">Inquire <span class="arr"></span></div
-          ></a>
+          ></a> -->
           <a class="svc" href="#contact" data-service="Maternity / Newborn"
             ><div class="snum">05</div>
             <div class="snm">Maternity &amp; Newborn</div>
@@ -3618,6 +3749,100 @@
         </form>
       </div>
     </section>
+    <!-- PRICING & PACKAGES -->
+    <section id="pricing">
+      <div class="pricing-inner">
+        <div class="pricing-hd">
+          <div class="sl"><span>Pricing &amp; Packages</span></div>
+          <h2 class="stitle">
+            <span class="cw"><span class="ci">What's Included</span></span>
+          </h2>
+        </div>
+        <!-- Lifestyle Session -->
+        <div class="pkg-row">
+          <div class="pkg-img-wrap">
+            <img
+              src="site-photo-download-1of1/life_style.jpg"
+              alt="Lifestyle Session"
+              class="pkg-img"
+            />
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-title">Lifestyle Session</div>
+            <p class="pkg-desc">
+              Perfect for portraits, birthdays, or branding. Capture genuine
+              moments that tell your story.
+            </p>
+            <ul class="pkg-list">
+              <li>1 hr coverage</li>
+              <li>20 edited photos</li>
+              <li>All unedited JPEGs included</li>
+              <li>Online gallery</li>
+              <li>1 outfit</li>
+              <li>Turnaround: 7–10 business days</li>
+            </ul>
+          </div>
+          <div class="pkg-price">
+            <a href="#contact" class="pkg-inquire">Inquire For<br />Pricing</a>
+          </div>
+        </div>
+        <!-- Small Events -->
+        <div class="pkg-row pkg-alt">
+          <div class="pkg-img-wrap">
+            <img
+              src="site-photo-download-1of1/event.jpg"
+              alt="Small Events"
+              class="pkg-img"
+            />
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-title">Small Events</div>
+            <p class="pkg-desc">
+              Ideal for birthdays, showers, and gatherings (non-wedding).
+            </p>
+            <ul class="pkg-list">
+              <li>2 hrs coverage minimum</li>
+              <li>40 edited photos</li>
+              <li>All unedited JPEGs included</li>
+              <li>Online gallery</li>
+              <li>1 location | Up to 50 guests</li>
+              <li>Turnaround: 10–14 business days</li>
+            </ul>
+          </div>
+          <div class="pkg-price">
+            <a href="#contact" class="pkg-inquire">Inquire For<br />Pricing</a>
+          </div>
+        </div>
+        <!-- Weddings -->
+        <div class="pkg-row">
+          <div class="pkg-img-wrap">
+            <img
+              src="site-photo-download-1of1/wedding.jpg"
+              alt="Weddings"
+              class="pkg-img"
+            />
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-title">Weddings</div>
+            <p class="pkg-desc">
+              Capturing your day with timeless, emotional storytelling.
+            </p>
+            <ul class="pkg-list">
+              <li>5 hrs | 1 location</li>
+              <li>75 edited photos</li>
+              <li>All unedited JPEGs included</li>
+              <li>Online gallery</li>
+              <li>5 edited photos within 24 hrs</li>
+              <li>Turnaround: 30–45 business days</li>
+              <li>Extra hr: +$150</li>
+            </ul>
+          </div>
+          <div class="pkg-price">
+            <a href="#contact" class="pkg-inquire">Inquire For<br />Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- LIGHTBOX -->
     <div id="lb" role="dialog" aria-modal="true" aria-label="Photo lightbox">
       <button id="lbx" onclick="clsLb()">Close</button>
@@ -3650,7 +3875,7 @@
     <!-- FOOTER -->
     <footer>
       <div class="fti">
-        <div class="ftl">KWAR<b>T</b>OGRAPHY</div>
+        <div class="ftl"><img src="logo.png" alt="Kwartography"></div>
         <p class="ftc">&copy; 2026 Kwartography. All rights reserved.</p>
         <div class="ftsoc">
           <a href="#" class="ftsc" aria-label="Instagram">
