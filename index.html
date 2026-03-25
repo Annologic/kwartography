@@ -546,17 +546,14 @@
         align-items: center;
         justify-content: center;
       }
-      .quick-logo {
-        font-family: var(--ff-d);
-        font-size: clamp(16px, 3vw, 24px);
-        font-weight: 700;
-        letter-spacing: 0.45em;
-        text-transform: uppercase;
-        color: var(--white);
+      .quick-logo-img {
+        width: clamp(120px, 20vw, 220px);
         opacity: 0;
       }
-      .quick-logo b {
-        color: var(--accent);
+      .story-logo-img {
+        width: clamp(150px, 25vw, 280px);
+        opacity: 0;
+        transform: translateY(20px);
       }
       /* ═══ MOBILE MENU ═══════════════════════════════════════ */
       #mmenu {
@@ -2705,7 +2702,7 @@
       <!-- Phase 3: Name reveal -->
       <div class="story-phase" id="story-p3">
         <div class="story-name">
-          <div class="story-name-main" id="story-name-letters"></div>
+          <img src="./logo.png" alt="KWARTOGRAPHY" id="story-logo-img" class="story-logo-img">
           <div class="story-name-sub">Fine Art Photography</div>
         </div>
       </div>
@@ -2719,7 +2716,7 @@
     </div>
     <!-- ═══ QUICK LOADER (returning visitors) ═══ -->
     <div id="quick-loader" style="display: none">
-      <div class="quick-logo" id="quick-logo">KWAR<b>T</b>OGRAPHY</div>
+      <img src="./logo.png" alt="KWARTOGRAPHY" id="quick-logo" class="quick-logo-img">
     </div>
     <!-- MOBILE MENU -->
     <div id="mmenu">
@@ -3959,16 +3956,6 @@
           localStorage.setItem(STORAGE_KEY, String(now));
           const storyEl = document.getElementById("story-loader");
           storyEl.style.display = "flex";
-          // Build name letters
-          const nameStr = "KWARTOGRAPHY";
-          const nameContainer = document.getElementById("story-name-letters");
-          nameStr.split("").forEach((c) => {
-            const s = document.createElement("span");
-            s.className = "story-name-ch";
-            s.textContent = c;
-            if (c === "T") s.style.color = "var(--accent)";
-            nameContainer.appendChild(s);
-          });
           const master = gsap.timeline({
             onComplete: () => {
               gsap.to(storyEl, {
@@ -3997,16 +3984,15 @@
               "-=.2",
             )
             .to("#story-p1", { opacity: 0, duration: 0.6, delay: 1.2 });
-          // Phase 3: Name reveal
+          // Phase 3: Logo reveal
           master
             .to("#story-p3", { opacity: 1, duration: 0.4 })
             .to(
-              ".story-name-ch",
+              "#story-logo-img",
               {
-                y: "0%",
+                y: 0,
                 opacity: 1,
-                duration: 0.5,
-                stagger: 0.035,
+                duration: 0.7,
                 ease: "expo.out",
               },
               "-=.1",
